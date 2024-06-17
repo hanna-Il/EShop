@@ -82,7 +82,6 @@ class UrlValidator extends ConstraintValidator
     }
 
     /**
-     * Validates url rewrite according the patterns which vary based on ascended chars allowed setting.
      *
      * @param string $urlRewrite
      *
@@ -100,7 +99,6 @@ class UrlValidator extends ConstraintValidator
     }
 
     /**
-     * Gets the accented chars url setting.
      *
      * @return bool
      */
