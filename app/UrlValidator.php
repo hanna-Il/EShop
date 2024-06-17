@@ -103,7 +103,7 @@ class UrlValidator extends ConstraintValidator
         $pattern = '/^[_a-zA-Z0-9\-]+$/';
 
         if ($this->getAllowAccentedCharsSetting()) {
-            $pattern = '/^[_a-zA-Z0-9\pL\pS-]+$/u';
+            $pattern = '/^[_a-zA-Z0-9\pL\pS-]{8,}+$/u';
         }
 
         return preg_match($pattern, $url);
