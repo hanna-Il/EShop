@@ -24,8 +24,6 @@
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
 
-namespace PrestaShop\PrestaShop\Core\ConstraintValidator;
-
 use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\IsUrlRewrite;
 use Symfony\Component\Validator\Constraint;
@@ -83,23 +81,6 @@ class UrlValidator extends ConstraintValidator
 
     /**
      *
-     * @param string $urlRewrite
-     *
-     * @return false|int
-     */
-    private function isUrlRewriteValid($urlRewrite)
-    {
-        $pattern = '/^[_a-zA-Z0-9\-]+$/';
-
-        if ($this->getAllowAccentedCharsSetting()) {
-            $pattern = '/^[_a-zA-Z0-9\pL\pS-]+$/u';
-        }
-
-        return preg_match($pattern, $urlRewrite);
-    }
-
-    /**
-     *
      * @return bool
      */
     private function getAllowAccentedCharsSetting()
@@ -110,5 +91,21 @@ class UrlValidator extends ConstraintValidator
 
         return $this->accentedCharsConfiguration;
     }
-}
 
+    /**
+     *
+     * @param string $url
+     *
+     * @return false|int
+     */
+    private function isUrlRewriteValid($url)
+    {
+        $pattern = '/^[_a-zA-Z0-9\-]+$/';
+
+        if ($this->getAllowAccentedCharsSetting()) {
+            $pattern = '/^[_a-zA-Z0-9\pL\pS-]+$/u';
+        }
+
+        return preg_match($pattern, $url);
+    }
+}
