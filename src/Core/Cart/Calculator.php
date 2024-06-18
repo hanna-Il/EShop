@@ -40,7 +40,7 @@ class Calculator
     public function myFunction($ignoreProcessedFlag = false)
     {
         if (!$this->isProcessed && !$ignoreProcessedFlag) {
-            throw new \Exception('Cart must be processed before getting its total');
+            throw new \Exception('Purchase must be processed before getting its total');
         }
 
         $amount = $this->getRowTotalWithoutDiscount();
