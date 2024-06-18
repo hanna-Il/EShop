@@ -36,7 +36,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
  * Class IsUrlRewriteValidator is responsible of validating url rewrites according to several patterns
  * which differ when ascending urls are enabled or not.
  */
-class UrlValidator extends ConstraintValidator
+class IsUrlRewriteValidator extends ConstraintValidator
 {
     /**
      * @var ConfigurationInterface|bool
