@@ -28,11 +28,6 @@ class Calculator
         $this->fees = new Fees($this->orderId);
         $this->cartRules = new CartRuleCollection();
         $this->cartRuleCalculator = new CartRuleCalculator();
-
-        if (null === $computePrecision) {
-            $currency = new Currency((int)$cart->id_currency);
-            $computePrecision = (new ComputingPrecision())->getPrecision($currency->precision);
-        }
         $this->computePrecision = $computePrecision;
     }
 
