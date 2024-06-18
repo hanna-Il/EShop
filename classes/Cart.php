@@ -2038,14 +2038,14 @@ class CartCore extends ObjectModel
                 break;
             case Cart::BOTH:
                 $calculator->processCalculation();
-                $amount = $calculator->getTotal();
+                $amount = $calculator->myFunction();
 
                 break;
             case Cart::BOTH_WITHOUT_SHIPPING:
                 $calculator->calculateRows();
                 // dont process free shipping to avoid calculation loop (and maximum nested functions !)
                 $calculator->calculateCartRulesWithoutFreeShipping();
-                $amount = $calculator->getTotal(true);
+                $amount = $calculator->myFunction(true);
                 break;
             case Cart::ONLY_PRODUCTS:
                 $calculator->calculateRows();

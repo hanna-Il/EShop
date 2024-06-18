@@ -28,7 +28,6 @@ class Calculator
         $this->fees = new Fees($this->orderId);
         $this->cartRules = new CartRuleCollection();
         $this->cartRuleCalculator = new CartRuleCalculator();
-        $this->computePrecision = $computePrecision;
     }
 
 
