@@ -33,7 +33,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 /**
- * Class IsUrlRewriteValidator is responsible for validating url rewrites according to several patterns
+ * Class IsUrlRewriteValidator is responsible of validating url rewrites according to several patterns
  * which differ when ascending urls are enabled or not.
  */
 class UrlValidator extends ConstraintValidator
@@ -41,7 +41,7 @@ class UrlValidator extends ConstraintValidator
     /**
      * @var ConfigurationInterface|bool
      */
-    private bool|ConfigurationInterface $accentedCharsConfiguration;
+    private $accentedCharsConfiguration;
 
     /**
      * this constructor can accept boolean value of already predefined accented chars allowance configuration to not
@@ -82,7 +82,7 @@ class UrlValidator extends ConstraintValidator
     }
 
     /**
-     * Validates url rewrite according the patterns which vary based on ascended chars allowed setting.
+     * Validates url rewrite according the patterns which vary based on ascented chars allowed setting.
      *
      * @param string $urlRewrite
      *
