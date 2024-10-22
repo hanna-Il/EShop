@@ -21,8 +21,19 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use PrestaShop\PrestaShop\Core\Language\LanguageInterface;
 
-class Entity implements LanguageInterface
+/**
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="PrestaShopBundle\Entity\Repository\LangRepository")
+ */
+class Lang implements LanguageInterface
 {
+    /**
+     * @var int
+     *
+     * @ORM\Id
+     * @ORM\Column(name="id_lang", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
 
     /**
@@ -122,7 +133,7 @@ class Entity implements LanguageInterface
      *
      * @param string $name
      *
-     * @return Entity
+     * @return Lang
      */
     public function setName(string $name)
     {
@@ -146,7 +157,7 @@ class Entity implements LanguageInterface
      *
      * @param bool $active
      *
-     * @return Entity
+     * @return Lang
      */
     public function setActive(bool $active)
     {
@@ -170,7 +181,7 @@ class Entity implements LanguageInterface
      *
      * @param string $isoCode
      *
-     * @return Entity
+     * @return Lang
      */
     public function setIsoCode(string $isoCode)
     {
@@ -194,7 +205,7 @@ class Entity implements LanguageInterface
      *
      * @param string $languageCode
      *
-     * @return Entity
+     * @return Lang
      */
     public function setLanguageCode(string $languageCode)
     {
@@ -218,7 +229,7 @@ class Entity implements LanguageInterface
      *
      * @param string $dateFormatLite
      *
-     * @return Entity
+     * @return Lang
      */
     public function setDateFormatLite(string $dateFormatLite)
     {
@@ -250,7 +261,7 @@ class Entity implements LanguageInterface
      *
      * @param string $dateFormatFull
      *
-     * @return Entity
+     * @return Lang
      */
     public function setDateFormatFull(string $dateFormatFull)
     {
@@ -282,7 +293,7 @@ class Entity implements LanguageInterface
      *
      * @param bool $isRtl
      *
-     * @return Entity
+     * @return Lang
      */
     public function setIsRtl($isRtl)
     {
@@ -320,7 +331,7 @@ class Entity implements LanguageInterface
     /**
      * @param string $locale
      *
-     * @return Entity
+     * @return Lang
      */
     public function setLocale($locale)
     {
@@ -334,7 +345,7 @@ class Entity implements LanguageInterface
      *
      * @param Shop $shop
      *
-     * @return Entity
+     * @return Lang
      */
     public function addShop(Shop $shop)
     {
