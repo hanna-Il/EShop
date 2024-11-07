@@ -4,8 +4,9 @@ namespace PrestaShopBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\JoinColumn;
+use PrestaShop\PrestaShop\Core\Domain\Configuration\Command\SwitchDebugModeCommand;
+use PrestaShopBundle\Security\Attribute\AdminSecurity;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -210,5 +211,15 @@ class Attribute
     public function getAttributeLangs()
     {
         return $this->attributeLangs;
+    }
+
+    #[AdminSecurity("is_granted('update', 'AdminPerformance') && is_granted('create', 'AdminPerformance') && is_granted('delete', 'AdminPerformance')")]
+    public function enableDebugModeAction(Request $request): RedirectResponse
+    {
+        $this->dispatchCommand(new SwitchDebugModeCommand(true));
+
+        return $this->redirect(
+            $request->request->get('_redirect_url')
+        );
     }
 }
